@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20090916014130) do
 
   create_table "epobject", :primary_key => "epobject_id", :force => true do |t|
     t.string   "title"
-    t.text     "body",     :limit => 16777215
+    t.text     "body",     :limit => 2147483647
     t.integer  "type"
     t.datetime "created"
     t.datetime "modified"
@@ -138,18 +138,18 @@ ActiveRecord::Schema.define(:version => 20090916014130) do
   add_index "hansard", ["subsection_id"], :name => "subsection_id"
 
   create_table "member", :primary_key => "member_id", :force => true do |t|
-    t.integer   "house"
-    t.string    "first_name",     :limit => 100
-    t.string    "last_name",                     :default => "",           :null => false
-    t.string    "constituency",   :limit => 100, :default => "",           :null => false
-    t.string    "party",          :limit => 100, :default => "",           :null => false
-    t.date      "entered_house",                 :default => '1000-01-01', :null => false
-    t.date      "left_house",                    :default => '9999-12-31', :null => false
-    t.string    "entered_reason", :limit => 30,  :default => "unknown",    :null => false
-    t.string    "left_reason",    :limit => 30,  :default => "unknown",    :null => false
-    t.integer   "person_id",                     :default => 0,            :null => false
-    t.string    "title",          :limit => 50,  :default => "",           :null => false
-    t.timestamp "lastupdate",                                              :null => false
+    t.integer  "house"
+    t.string   "first_name",     :limit => 100
+    t.string   "last_name",                     :default => "",           :null => false
+    t.string   "constituency",   :limit => 100, :default => "",           :null => false
+    t.string   "party",          :limit => 100, :default => "",           :null => false
+    t.date     "entered_house",                 :default => '1000-01-01', :null => false
+    t.date     "left_house",                    :default => '9999-12-31', :null => false
+    t.string   "entered_reason", :limit => 30,  :default => "unknown",    :null => false
+    t.string   "left_reason",    :limit => 30,  :default => "unknown",    :null => false
+    t.integer  "person_id",                     :default => 0,            :null => false
+    t.string   "title",          :limit => 50,  :default => "",           :null => false
+    t.datetime "lastupdate",                                              :null => false
   end
 
   add_index "member", ["constituency"], :name => "constituency"
@@ -159,10 +159,10 @@ ActiveRecord::Schema.define(:version => 20090916014130) do
   add_index "member", ["person_id"], :name => "person_id"
 
   create_table "memberinfo", :id => false, :force => true do |t|
-    t.integer   "member_id",                 :default => 0,  :null => false
-    t.string    "data_key",   :limit => 100, :default => "", :null => false
-    t.text      "data_value",                                :null => false
-    t.timestamp "lastupdate",                                :null => false
+    t.integer  "member_id",                 :default => 0,  :null => false
+    t.string   "data_key",   :limit => 100, :default => "", :null => false
+    t.text     "data_value",                                :null => false
+    t.datetime "lastupdate",                                :null => false
   end
 
   add_index "memberinfo", ["member_id", "data_key"], :name => "memberinfo_member_id_data_key", :unique => true
@@ -191,10 +191,10 @@ ActiveRecord::Schema.define(:version => 20090916014130) do
   add_index "pbc_members", ["member_id"], :name => "member_id"
 
   create_table "personinfo", :id => false, :force => true do |t|
-    t.integer   "person_id",                 :default => 0,  :null => false
-    t.string    "data_key",   :limit => 100, :default => "", :null => false
-    t.text      "data_value",                                :null => false
-    t.timestamp "lastupdate",                                :null => false
+    t.integer  "person_id",                 :default => 0,  :null => false
+    t.string   "data_key",   :limit => 100, :default => "", :null => false
+    t.text     "data_value",                                :null => false
+    t.datetime "lastupdate",                                :null => false
   end
 
   add_index "personinfo", ["person_id", "data_key"], :name => "personinfo_person_id_data_key", :unique => true
