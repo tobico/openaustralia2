@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.recent_comments 'comments/recent', :controller => 'comments', :action => 'recent', :trailing_slash => true
   map.user 'user', :controller => 'user', :action => 'show', :trailing_slash => true
   map.login 'user/login', :controller => 'user', :action => 'login', :trailing_slash => true
+  map.logout 'user/logout', :controller => 'user', :action => 'logout', :trailing_slash => true
   map.report 'report', :controller => 'comments', :action => 'report', :trailing_slash => true
   map.api 'api', :controller => 'api', :trailing_slash => true
   map.add_comment 'user/prompt', :controller => 'comment', :action => 'new', :trailing_slash => true, :anchor => "addcomment"
