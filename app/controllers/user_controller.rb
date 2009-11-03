@@ -5,7 +5,7 @@ class UserController < ApplicationController
     @error = nil
     if request.post?
       if !(params[:email] != '' && params[:password] != '')
-        @error = "Please enter you email address and password"
+        @error = "Please enter your email address and password"
       elsif user = User.authenticate(params[:email], params[:password])
         session[:user_id] = user.user_id
         redirect_to '/'

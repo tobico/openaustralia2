@@ -22,4 +22,4 @@ Feature: Login
   Scenario: Blank login
     Given I am on the login page
     When I press "Login"
-    Then I should see "Please enter you email address and password"
+    Then I should see "Please enter your email address and password"
