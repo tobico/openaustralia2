@@ -16,7 +16,6 @@ class CreateMemberTable < ActiveRecord::Migration
       `title` varchar(50) NOT NULL default '',
       `lastupdate` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
       PRIMARY KEY  (`member_id`),
-      UNIQUE KEY `first_name` (`first_name`,`last_name`,`constituency`,`entered_house`,`left_house`),
       KEY `person_id` (`person_id`),
       KEY `constituency` (`constituency`),
       KEY `house` (`house`),
