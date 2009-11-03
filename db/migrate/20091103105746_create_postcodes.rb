@@ -1,12 +1,9 @@
 class CreatePostcodes < ActiveRecord::Migration
   def self.up
-    execute <<-EOF
-     CREATE TABLE `postcode_lookup` (
-      `postcode` varchar(10) NOT NULL default '',
-      `name` varchar(100) NOT NULL default '',
-      KEY  (`postcode`)
-    );
-    EOF
+    create_table :postcode_lookup do |t|
+      t.string "postcode", :limit => 10,  :default => "", :null => false
+      t.string "name",     :limit => 100, :default => "", :null => false
+    end
   end
 
   def self.down
