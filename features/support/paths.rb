@@ -10,6 +10,9 @@ module NavigationHelpers
     
     when /the homepage/
       '/'
+      
+    when /the login page/
+      '/user/login'
     
     # Add more mappings here.
     # Here is a more fancy example:

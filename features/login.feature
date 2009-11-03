@@ -1,13 +1,25 @@
 Feature: Login
-  In order to allow users to login
+  In order to identify myself
+  As a registered user
+  I need to be able to login
   
   Scenario: Successful login
-    Given user is on the login page
-    When user enters login name matthew@openaustralia.org and password foobar
-    Then user should be returned to the referring page
-    And the username should be displayed with a logout link
+    Given I am on the login page
+    When I fill in "email" with "matthew@openaustralia.org"
+    And I fill in "password" with "foobar"
+    And I press "Login"
+    Then I should be on the homepage
+    And I should see "Log out"
+    And I should see "Matthew Landauer"
     
   Scenario: Failed login
-    Given user is on the login page
-    When user enters login name badname and password meatpie
-    Then there should be an error message regarding bad login
+    Given I am on the login page
+    When I fill in "email" with "nobody"
+    And I fill in "password" with "meatpie"
+    And I press "Login"
+    Then I should see "There is no user registered with an email of nobody"
+    
+  Scenario: Blank login
+    Given I am on the login page
+    When I press "Login"
+    Then I should see the words "Please enter you email address and password"
