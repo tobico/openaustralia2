@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090916014130) do
+ActiveRecord::Schema.define(:version => 20091103105746) do
 
   create_table "alerts", :primary_key => "alert_id", :force => true do |t|
     t.string   "email",                           :default => "",    :null => false
@@ -199,6 +199,13 @@ ActiveRecord::Schema.define(:version => 20090916014130) do
 
   add_index "personinfo", ["person_id", "data_key"], :name => "personinfo_person_id_data_key", :unique => true
   add_index "personinfo", ["person_id"], :name => "person_id"
+
+  create_table "postcode_lookup", :id => false, :force => true do |t|
+    t.string "postcode", :limit => 10,  :default => "", :null => false
+    t.string "name",     :limit => 100, :default => "", :null => false
+  end
+
+  add_index "postcode_lookup", ["postcode"], :name => "postcode"
 
   create_table "search_query_log", :force => true do |t|
     t.text     "query_string"

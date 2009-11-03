@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+melbourne:
+  postcode: 3000
+  name: Melbourne
+
+goldstein:
+  postcode: 3204
+  name: Goldstein
+
+hotham:
+  postcode: 3204
+  name: Hotham
