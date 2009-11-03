@@ -1,5 +1,3 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
 melbourne:
   postcode: 3000
   name: Melbourne
@@ -11,3 +9,15 @@ goldstein:
 hotham:
   postcode: 3204
   name: Hotham
+  
+allambie:
+  postcode: 2100
+  name: Warringah
+
+oxford_falls:
+  postcode: 2100
+  name: Mackellar
+
+forestville:
+  postcode: 2087
+  name: Warringah
