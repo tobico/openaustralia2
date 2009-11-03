@@ -1,0 +1,40 @@
+#content
+  .stripe-side
+    .main
+      %h2 Log in
+      %p
+        Not yet a member?
+        = link_to 'Join now!', join_path
+      - if @error
+        %p.error
+          = @error
+      - form_tag login_path, :method => 'post' do
+        .row
+          %span.label
+            %label{ :for => "email" } Email address:
+          %span.formw
+            = text_field_tag 'email', '', { :maxlength => "100", :size => "30" }
+        .row
+          %span.label
+            %label{ :for => "password" } Password:
+          %span.formw
+            = password_field_tag 'password', '', { :maxlength => "30", :size => "20" }
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = check_box_tag 'remember', 'true'
+            = label_tag 'remember', 'Remember login details.*'
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = submit_tag 'Login'
+            %small= link_to 'Forgotten your password?', password_path
+    .sidebar
+      #help.block
+        %h4 Logging in
+        .blockbody
+          %p You don't need to log-in to browse or search the site. We only ask you to register and log-in if you want to post comments or add entries to the glossary.
+          %p
+            %strong * If this box is checked, your login details will be stored on this computer.
+            If you share this computer with other people, uncheck the box.
+    .break

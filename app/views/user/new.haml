@@ -1,0 +1,113 @@
+#content
+  .stripe-side
+    .main
+      %h2 Join OpenAustralia.org
+      %h3 &nbsp;
+      %p
+        Already joined?
+        = link_to 'The log in!', login_path
+      - form_for :user, @user, :url => { :action => 'create' } do |f|
+        .row
+          %span.label= f.label 'firstname', 'Your first name:'
+          %span.formw
+            = f.text_field 'firstname', :maxlength => "255", :size => "30"
+        .row
+          %span.label= f.label 'lastname', 'Your last name:'
+          %span.formw
+            = f.text_field 'lastname', :maxlength => "255", :size => "30"
+        .row
+          %span.label= f.label 'email', 'Email address:'
+          %span.formw
+            = f.text_field 'email', :maxlength => "255", :size => "30"
+        .row
+          %span.label= f.label 'password', 'Password:'
+          %span.formw
+            = f.password_field 'password', :maxlength => "30", :size => "20"
+            %small At least six characters
+        .row
+          %span.label= f.label 'password_confirmation', 'Repeat password:'
+          %span.formw
+            = f.password_field 'password_confirmation', :maxlength => "30", :size => "20"
+        %br{ :style => "clear: left;" } &nbsp;
+        %br
+        %span.formw
+          = f.hidden_field 'constituency', :maxlength => "20", :size => "20"
+        .row
+          %span.label= f.label 'url', 'Your website:'
+          %span.formw
+            = f.text_field 'url', :maxlength => "255", :size => "20"
+            %small Optional and public
+        .row
+          \&nbsp;
+          %br
+          Let other users see your email address?
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = f.radio_button 'emailpublic', 'true'
+            = f.label 'emailpublic_true', 'Yes'
+            %br
+            = f.radio_button 'emailpublic', 'false'
+            = f.label 'emailpublic_false', 'No'
+        .row
+          \&nbsp;
+          %br
+          Do you wish to receive occasional update emails about OpenAustralia.org?
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = f.radio_button 'optin', 'true'
+            = f.label 'optin_true', 'Yes'
+            %br
+            = f.radio_button 'optin', 'false'
+            = f.label 'optin_false', 'No'
+        .row
+          \&nbsp;
+          %br
+          Would you like to receive an email whenever your MP does something in Parliament?
+          %br
+          %small &nbsp;&nbsp;(if you're already getting email alerts to your address, don't worry about this)
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = f.radio_button 'mp_alert', 'true'
+            = f.label 'mp_alert_true', 'Yes'
+            %br
+            = f.radio_button 'mp_alert', 'false'
+            = f.label 'mp_alert_false', 'No'
+        .row
+          %span.label &nbsp;
+          %span.formw
+            \&nbsp;
+            %br
+            %small
+              Read our
+              = link_to 'Terms of Use', "/houserules/"
+              \.
+        .row
+          %span.label &nbsp;
+          %span.formw
+            = submit_tag 'Join OpenAustralia.org'
+    .sidebar
+      #help.block
+        %h4 Your privacy
+        .blockbody
+          %p
+            Welcome to
+            %strong OpenAustralia.org
+            \- the more you contribute and participate, the better the site will get for everyone.
+          %p
+            Our
+            %strong Privacy Policy
+            is very simple:
+          %p
+            %strong 1.
+            We guarantee we will not sell or distribute any personal information you share with us
+          %p
+            %strong 2.
+            We will not be sending you unsolicited email
+          %p
+            %strong 3.
+            We will gladly show you the personal data we store about you in order to run the website
+          %p We hope you enjoy using the website.
+    .break
